@@ -1,0 +1,22 @@
+<block wx:for="{{demoData}}" wx:for-item="item" wx:for-index="idx">
+  
+<view class='send-body'>
+
+<view class="send-body-form-line">
+  <view class='zg' data-url="{{item.brandId}}" bindtap = "onItemClick">
+    <view class="product-view">
+      <view>{{item.username}}</view>
+      <view>{{item.name}}</view>
+    </view>
+    <view class='zg'>
+      <view class='zg_txt'>总数:{{item.terminalLimit}}</view>
+      <view class='zg_txt'>已用:{{item.activatedCount}}</view>
+      <view class='zg_txt'>可用:{{item.availableTerminalLimit}}</view>
+    </view>
+    <view  class="{{item.canActivate?'actived':'unactived'}}">{{item.canActivate?'可激活':'不可激活'}}</view>
+  </view>
+    </view>
+  </view>
+  
+</block>
+<button class="confirm" bindtap="anniu">添加产品</button>

@@ -1,0 +1,191 @@
+/* pages/mine/mine.wxss */
+.bg {
+  display: flex;
+  height: 150px;
+  background-color: #FFE069;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+}
+
+.headIcon {
+  display: flex;
+  justify-content: center;
+}
+
+.login {
+  display: flex;
+  color: #000;  font-size: 15px;
+
+  font-size: 15px;
+  margin-top: 15rpx;
+  justify-content: center;
+}
+
+.button {
+  margin: 10px;
+  font-size: 14px;
+}
+
+.head image {
+  border-radius: 50%;
+}
+
+.hr {
+  width: 100%;
+  height: 15px;
+  background-color: #f4f5f6;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  font-size: 15px;
+}
+
+.detail2 {
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  height: 50px;
+  line-height: 50px;
+  color: #888;
+}
+
+.line {
+  border: 1px solid #ccc;
+  opacity: 0.2;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aqua;
+}
+
+
+
+.top{
+  background-color: #FFE069;
+  height: 80px;
+  position: relative;
+  width: 100%;
+  z-index:0;
+}
+
+
+.top-main{
+  z-index: 1;
+  position: relative;
+}
+
+
+.userinfo-account {
+  display: inline-block;
+  position: absolute;
+  /* margin-top: 15px; */
+  margin-left: 15px;
+  width:200px;
+  height:22px;
+  font-size:16px;
+  font-weight:400;
+  color:#000;
+  line-height:22px;
+}
+
+.userinfo-product{
+  display: inline-block;
+  position: absolute;
+  margin-top: 25px;
+  margin-left: 15px;
+  width:200px;
+  height:10px;
+  font-size:13px;
+  font-weight:200;
+  color:#000;
+  line-height:22px;
+}
+
+
+.top-main-right{
+  right: 20px;
+  position: absolute;
+  top:30px;
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  height: 15px;
+  width: 15px;
+  transform:rotate(45deg);   
+}
+
+
+.index-navigators{
+  margin-top: 75px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.navigator-item{
+  width:100px; 
+}
+
+.navigator-item-icon{
+  margin: 7px;
+  width: 24px;
+  height: 24px;
+}
+.navigator-item-text{
+  font-size: 16px;
+  color: #000;
+  font-size: 11px;
+  text-align: center;
+}
+
+
+.navigator-item-text1{
+  font-size: 20px;
+  color: #000;
+  font-size: 20px;
+  text-align: center;
+}
+
+.ellipsis {
+  display: flex;
+  height: 120px;
+  background-color: #FFE069;
+}
+/* 展示全部 */
+.unellipsis {
+  display: flex;
+  height: 220px;
+  background-color: #FFE069;
+}
+.ellipsis-view{
+  width: 100%;
+  height: 40px;
+  font-size:13px;
+  font-weight:200;
+  color:#000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFE069;
+  
+}
+
+.myCanvas{
+  background-color: #FFE069;
+}
+.unmyCanvas {
+  background-color: #FFE069;
+  height: 0px;
+}

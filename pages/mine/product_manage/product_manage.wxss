@@ -1,0 +1,73 @@
+page {
+  background-color: #fff;
+}
+
+.demos{
+  width: 100%;
+  height: 50px;
+  line-height: 25px;
+  background-color: #ffffff;
+  color: #000000;
+  margin-left: 15px;
+  font-size: 13px;
+}
+.btn{
+  height: 50px;
+  width: 80%;
+  margin-left: 10%;
+  line-height: 50px;
+  background-color:#FFE069;
+  color: #000;
+  text-align: center;
+}
+
+
+.send-body{
+  background: #fff;
+  width:100%;
+}
+
+.send-body .send-body-form-line{
+  padding: 10px 0 ;
+  border-bottom: 1px dashed #E5E5E5;
+  display: flex;
+}
+.confirm{
+  height:40px;
+  background-color:#FFE069;
+  border-radius:20px;
+  line-height: 40px;
+  color:#000;
+  margin:15px;
+}
+
+.zg  {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  flex-grow: 1;
+}
+
+.zg_txt {
+  margin-left: 13px;
+  font-size:13px;
+  font-weight:400;
+}
+
+.actived {
+  color:#FFE069;
+  width: 150px;
+}
+
+.unactived {
+  color:#999999;
+  width: 150px;
+
+}
+
+.product-view {
+  margin-left: 15px;
+}
+

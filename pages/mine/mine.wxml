@@ -1,0 +1,71 @@
+<view class="ellipsis">
+<!-- <view class="bg"> -->
+  <view class="userinfo-account">{{accountName}}</view>
+  <view class="userinfo-product">{{productName}}</view>
+  
+  
+  <view class="index-navigators">
+    <view class="navigator-item" bindtap='jumpSend'>
+      <view class="navigator-item-text1">
+        {{productNum}}
+      </view>
+      <!-- <view class="navigator-item-icon">
+        <image src="/image/productIcon.png"></image>
+      </view> -->
+      <view class="navigator-item-text">
+        {{partnerType == 0?'品牌':'方案'}}
+      </view>
+    </view>
+    <view class="navigator-item" bindtap='jumpAppoint'>
+      <view class="navigator-item-text1">
+        {{activedNum}}
+      </view>
+      <!-- <view class="navigator-item-icon">
+        <image src="/image/activedIcon.png"></image>
+      </view> -->
+      <view class="navigator-item-text">
+        激活数量
+      </view>
+    </view>
+  </view>
+
+</view>
+<!-- <canvas wx:if="{{ellipsis==false}}" canvas-id="canvas1"  style=" width:{{chartWidth}}px;height:{{chartHeight}}px;"/> -->
+<canvas canvas-id="canvas1"  style=" width:{{chartWidth}}px;height:{{chartHeight}}px;"/>
+
+
+<view class="ellipsis-view" bindtap='ellipsis'>{{ellipsis?'展开信息 ▽':'收起信息 △'}}</view>
+
+<view class="line" ></view>
+<view wx:if="{{partnerType == 0}}" class="item"  bindtap="pushProductManage">
+  <view class="title">品牌管理</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+<view class="line"></view>
+<view class="item" bindtap="callPhone">
+  <view class="title" >联系客服</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+<view class="line"></view>
+<view class="item" bindtap="changepassword">
+  <view class="title">修改密码</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+<view class="line"></view>
+<view class="item" bindtap="loginout">
+  <view class="title" >退出登录</view>
+  <view class="detail2">
+    <text> ></text>
+  </view>
+</view>
+<view class="line"></view>
+
+  <tabbar tabbar="{{tabbar}}"></tabbar>
+
+<!-- <view class="hr"></view> -->

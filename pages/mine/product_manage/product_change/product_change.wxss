@@ -1,0 +1,36 @@
+page {
+  background-color: #fff;
+}
+
+.send-top{
+  height: 15px;
+  background: linear-gradient(180deg,#1296ee 0% ,#158CE9 100%);
+  position: absolute;
+  top:66px;
+  width: 100%;
+  z-index:-1;
+}
+.send-body{
+  background: #fff;
+  border-radius: 15px 15px 0 0;
+  width:100%;
+  padding:27px 16px 61px;
+  box-sizing: border-box;
+}
+
+.send-body .send-body-form-line{
+  padding: 10px 0 ;
+  box-sizing: border-box;
+  border-bottom: 1px dashed #E5E5E5;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom:10px;
+}
+.confirm{
+  height:40px;
+  background-color:#FFE069;
+  border-radius:20px;
+  line-height: 40px;
+  color:#000;
+  margin-top:15px;
+}

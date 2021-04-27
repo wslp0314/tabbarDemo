@@ -1,0 +1,33 @@
+
+<view class="send">
+  <view class="send-top"></view>
+  <view class='send-body'>
+    <view class="send-body-form-line">
+      <view style="font-size:14px;">品牌/渠道</view>
+      <view>
+        <input placeholder='请输入品牌/渠道' placeholder-style='text-align:right;font-size:12px;' style="text-align:right;width:200px;font-size:14px;color:#999999;" bindinput="inputProductName" value="{{productName}}"></input>
+      </view>
+    </view>
+
+    <view class="send-body-form-line">
+      <view style="font-size:14px;">账号</view>
+      <view>
+        <input placeholder='请输入账号' placeholder-style='text-align:right;font-size:12px;' style="text-align:right;width:200px;font-size:14px;color:#999999;" bindinput="inputUsername" value="{{username}}"></input>
+      </view>
+    </view>
+    <view class="send-body-form-line">
+      <view style="font-size:14px;">密码</view>
+      <view>
+        <input placeholder='请输入密码' placeholder-style='text-align:right;font-size:12px;' style="text-align:right;width:200px;font-size:14px;color:#999999;" bindinput="inputPassword" value="{{password}}"></input>
+      </view>
+    </view>
+    <view class="send-body-form-line">
+      <view style="font-size:14px;">限制</view>
+      <view>
+        <input placeholder='请输入限制' placeholder-style='text-align:right;font-size:12px;' style="text-align:right;width:200px;font-size:14px;color:#999999;" bindinput="inputLimitNum" value="{{limitNum}}"></input>
+
+      </view>
+    </view>
+    <button class="confirm" bindtap="sendConfirm">添加</button>
+  </view>
+</view>

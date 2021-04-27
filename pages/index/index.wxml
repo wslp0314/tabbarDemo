@@ -1,0 +1,82 @@
+<!--index.wxml-->
+<view >
+  <!--登录页面-->
+<view  wx:if="{{userId.length == 0}}"   class="item">
+      <view class="login-item">
+           <view class="login-item-info">用户名</view>
+           <view><input bindinput='inputUserame' value="{{username}}"/></view>
+      </view>
+      <view class="login-item">
+           <view class="login-item-info">密码</view>
+           <view class="login-pwd">
+           <input style="flex-grow:1" password="true" bindinput='inputPassword' value="{{password}}"/> 
+           <!-- <text class="forget-text" bindtap="clickForgetText"> 忘记密码 </text> -->
+           </view>
+      </view>
+      <view class="login-item bottom">
+           <button class="confirm" bindtap="loginEvent">登录</button>
+      </view>
+</view>
+
+
+<view wx:else class="result">
+
+<!--pages/scan/scan.wxml-->
+<view class='blockview'> </view>
+<!-- 品牌详情 -->
+<view class="productview" >
+  <view style="display:flex; width:120px">
+    <view >
+      <view class="switchview" >{{productName}}</view>
+    </view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{productList}}" style="margin-top:20px; width:70px;" id="picker">  
+      <button class="switchview1">▽</button>
+    </picker>
+  </view>
+
+<view style="margin-top:20px; margin-right:50px; width:150px;" >
+  <view class="numItem">
+    <view  class="subtitle">授权总数</view>
+    <view class="subtitleInfo">{{totalNum==-1?'不限':totalNum}}</view>
+  </view>
+  <view class="numItem">
+    <view class="subtitle">可用授权</view>
+    <view class="subtitleInfo">{{useNum==-1?'不限':useNum}}</view>
+  </view>
+  <view class="numItem">
+    <view class="subtitle">已用授权</view>
+    <view class="subtitleInfo">{{usedNum==-1?'不限':usedNum}}</view>
+  </view>
+</view>
+</view>
+<view>
+    
+
+
+
+
+  <view wx:for = "{{items}}">
+    <view class='send-body'>
+      <view class="send-body-form-line">
+        <view  data-url="{{item.url}}" bindtap = "onItemClick">
+          <view class="liupu_line">
+            <view class="subtitle">设备编号:    </view>
+            <view class="title"> {{item.desc}}</view>
+          </view>
+          <view class="liupu_line">
+            <view class="subtitle">激活时间:    </view> 
+            <view class="title">{{item.time}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<tabbar tabbar="{{tabbar}}"></tabbar>
+
+
+</view>
+
+</view>
