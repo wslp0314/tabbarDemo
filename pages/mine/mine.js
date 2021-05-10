@@ -161,7 +161,7 @@ Page({
       productNum:app.globalData.productList.length,
       activedNum:activedCount,
       accountName:app.globalData.userInfo.username,
-      productName:app.globalData.userInfo.corporation,
+      productName:app.globalData.userInfo.corporation==null?"":app.globalData.userInfo.corporation,
     });
   },
 

@@ -71,6 +71,8 @@
       </view>
     </view>
   </view>
+  <view style="height:55px;width:5px;color:white;"></view>
+
 </view>
 
 

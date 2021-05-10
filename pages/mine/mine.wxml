@@ -65,6 +65,7 @@
   </view>
 </view>
 <view class="line"></view>
+<view style="height:55px;width:5px;color:white;"></view>
 
   <tabbar tabbar="{{tabbar}}"></tabbar>
 
