@@ -52,7 +52,8 @@ Page({
           }).catch((errMsg) => {
             wx.showToast({
                 title: errMsg,
-                icon: "none"
+                icon: "none",
+                duration:2000
               })
           });
 
@@ -84,6 +85,7 @@ Page({
         wx.showToast({
           title: str,
           icon: "none",
+          duration:2000
         })
         return;
       }
@@ -99,7 +101,8 @@ Page({
       }).catch((errMsg) => {
         wx.showToast({
             title: errMsg,
-            icon: "none"
+            icon: "none",
+            duration:2000
           })
       });
     } 
@@ -118,7 +121,8 @@ Page({
       }).catch((errMsg) => {
         wx.showToast({
             title: errMsg,
-            icon: "none"
+            icon: "none",
+            duration:2000
           })
       });
     }

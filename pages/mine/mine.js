@@ -14,7 +14,7 @@ Page({
     accountName:"",
     productName:"",
     productNum:"",
-    activedNum:"",
+    activedNum:0,
     partnerType:0,
     phone:"",
     getRealNameShow: false,
@@ -24,11 +24,17 @@ Page({
 
   // 收起/展开按钮点击事件
   ellipsis() {
+    if (this.data.activedNum == 0) {
+      wx.showToast({
+        title: "激活数量为 0",
+        icon: "none"
+      });
+      return;
+    }
+    
     let that = this;
-
       app.globalData.hidePie = !that.data.ellipsis;
       that.createPie();
-
     that.setData({
       ellipsis: !that.data.ellipsis
     })
@@ -68,6 +74,9 @@ Page({
 
   //跳转品牌管理
   pushProductManage: function(){
+    if (this.data.ellipsis == false) {
+      this.ellipsis();
+    }
     wx.navigateTo({
       url: '../mine/product_manage/product_manage'
   })
@@ -75,6 +84,9 @@ Page({
 
   //联系客服
   callPhone: function () {
+    if (this.data.ellipsis == false) {
+      this.ellipsis();
+    }
     wx.makePhoneCall({
       phoneNumber: '18612321893',
       success: function () {
@@ -87,17 +99,23 @@ Page({
   },
 
   changepassword:function(){
+    if (this.data.ellipsis == false) {
+      this.ellipsis();
+    }
     wx.navigateTo({
       url: '../mine/change_password/change_password'
   })
   },
 
   loginout:function(){
-
+    if (this.data.ellipsis == false) {
+      this.ellipsis();
+    }
     //删除本地的  token  在请求一下接口
     wx.showModal({
       title: '退出登录',
       success (res) {
+        
         if (res.confirm) {
           app.globalData.userInfo = null;
         wx.clearStorage();
@@ -109,6 +127,7 @@ Page({
                 page.onLoad();
           }
         });
+
           console.log("点击了退出登录");
         } else if (res.cancel) {
           console.log('用户点击取消')
@@ -136,6 +155,7 @@ Page({
     for (let i = 0; i < array.length; i++) {
       activedCount +=  array[i].activatedCount
     }
+    this.data.activedNum = activedCount;
     this.setData({
       partnerType:app.globalData.userInfo.partnerType,
       productNum:app.globalData.productList.length,

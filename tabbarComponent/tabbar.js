@@ -62,7 +62,8 @@ Component({
       } else {
         wx.showToast({
           title: "当前"+(app.globalData.userInfo.partnerType == 0?'品牌':'方案')+"无法激活设备",
-          icon: "none"
+          icon: "none",
+          duration:2000
         })
       }
       

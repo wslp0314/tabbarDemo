@@ -9,9 +9,9 @@
       <view>{{item.name}}</view>
     </view>
     <view class='zg'>
-      <view class='zg_txt'>总数:{{item.terminalLimit}}</view>
+      <view class='zg_txt'>总数:{{item.terminalLimit == -1?"不限":item.terminalLimit}}</view>
       <view class='zg_txt'>已用:{{item.activatedCount}}</view>
-      <view class='zg_txt'>可用:{{item.availableTerminalLimit}}</view>
+      <view class='zg_txt'>可用:{{item.availableTerminalLimit == -1?"不限":item.availableTerminalLimit}}</view>
     </view>
     <view  class="{{item.canActivate?'actived':'unactived'}}">{{item.canActivate?'可激活':'不可激活'}}</view>
   </view>

@@ -131,7 +131,7 @@ Page({
           icon: "none"
         });
         this.getNumDetail();
-        this.getActivedList(mCurrentPage,temp.brandId ,temp.solutionId);
+        this.getActivedList(mCurrentPage,this.data.productItem.brandId ,this.data.productItem.solutionId);
 
     }).catch((errMsg) => {
       if (Object.prototype.toString.call(errMsg) === '[object String]') {
@@ -166,7 +166,7 @@ Page({
     mTimes = [];
     mCurrentPage = 1;
     this.setData({
-      productName: this.data.productList[e.detail.value] + "▽"
+      productName: this.data.productList[e.detail.value] //+ "▽"
     })
     this.data.productName = this.data.productList[e.detail.value]
      

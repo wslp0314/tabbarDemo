@@ -54,6 +54,7 @@ Page({
       wx.showToast({
         title: str,
         icon: "none",
+        duration:2000
       })
       return;
     }
@@ -69,7 +70,8 @@ Page({
         console.log("liupu:"+res.data.msg);
         wx.showToast({
           title: res.data.msg,
-          icon: "none"
+          icon: "none",
+          duration:2000
         })
         app.globalData.userInfo = null;
         wx.clearStorage();
@@ -85,7 +87,8 @@ Page({
     }).catch((errMsg) => {
       wx.showToast({
           title: errMsg,
-          icon: "none"
+          icon: "none",
+          duration:2000
         })
     });
 

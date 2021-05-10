@@ -59,7 +59,8 @@ Page({
     if (Object.prototype.toString.call(errMsg) === '[object String]') {
       wx.showToast({
         title: errMsg,
-        icon: "none"
+        icon: "none",
+        duration:2000
       })
     }
   });

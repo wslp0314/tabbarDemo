@@ -34,7 +34,7 @@ page {
 }
 
 .login-item-info{
-  font-size: 8px;
+  font-size: 11px;
   color: #888;
    padding-bottom: 20rpx;
 }
