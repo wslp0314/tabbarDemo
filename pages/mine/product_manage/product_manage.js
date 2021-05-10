@@ -43,7 +43,7 @@ Page({
     icon: 'loading'
   });
 
-  util.get("https://test.ivicar.cn/xinyao/partners/"+app.globalData.userInfo.id+"/brand/relation").then((res) => {
+  util.get(app.globalData.testUrl + "partners/"+app.globalData.userInfo.id+"/brand/relation").then((res) => {
     console.log(res);
     if (res == null ) {
       console.error("god bless you...");

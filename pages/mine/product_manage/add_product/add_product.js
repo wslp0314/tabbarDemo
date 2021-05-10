@@ -66,7 +66,7 @@ Page({
       return;
     }
 
-    util.post("https://test.ivicar.cn/xinyao/partners/"+app.globalData.userInfo.id+"/brand", {"username":this.data.username,"password":this.data.password,"name":this.data.productName,"terminalLimit":this.data.limitNum > 0?this.data.limitNum:-1,"standalone": 0,"undertaker": 0},).then((res) => {
+    util.post(app.globalData.testUrl + "partners/"+app.globalData.userInfo.id+"/brand", {"username":this.data.username,"password":this.data.password,"name":this.data.productName,"terminalLimit":this.data.limitNum > 0?this.data.limitNum:-1,"standalone": 0,"undertaker": 0},).then((res) => {
       console.log(res);
       if (res == null ) {
         console.error("god bless you...");

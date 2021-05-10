@@ -41,7 +41,7 @@ Page({
       title: '确认删除当前品牌吗?',
       success (res) {
         if (res.confirm) {
-          util.post("https://test.ivicar.cn/xinyao/partners/"+app.globalData.userInfo.id+"/brand/unbind", {"brandId":that.data.brandId}).then((res) => {
+          util.post(app.globalData.testUrl + "partners/"+app.globalData.userInfo.id+"/brand/unbind", {"brandId":that.data.brandId}).then((res) => {
             console.log(res);
             if (res == null ) {
               console.error("god bless you...");
@@ -90,7 +90,7 @@ Page({
         return;
       }
 
-      util.post("https://test.ivicar.cn/xinyao/partners/"+app.globalData.userInfo.id+"/password/change", {"oldPassword":this.data.oldPassword,"newPassword":this.data.newPassword,"paertnerId":app.globalData.userInfo.id}).then((res) => {
+      util.post(app.globalData.testUrl + "partners/"+app.globalData.userInfo.id+"/password/change", {"oldPassword":this.data.oldPassword,"newPassword":this.data.newPassword,"paertnerId":app.globalData.userInfo.id}).then((res) => {
         console.log(res);
         if (res == null ) {
           console.error("god bless you...");
@@ -108,7 +108,7 @@ Page({
     } 
 
     if (this.data.limitNum.length > 0) {
-      util.put("https://test.ivicar.cn/xinyao/partners/"+app.globalData.userInfo.id+"/brand", {"brandId":this.data.brandId,
+      util.put(app.globalData.testUrl + "partners/"+app.globalData.userInfo.id+"/brand", {"brandId":this.data.brandId,
       "terminalLimit": this.data.limitNum == 0? -1:this.data.limitNum ,
       "standalone": 0,
       "undertaker": 0}).then((res) => {

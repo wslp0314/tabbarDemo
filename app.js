@@ -60,6 +60,8 @@ App({
     });
   },
   globalData: {
+    testUrl:"https://test.ivicar.cn/xinyao/",
+    productUrl:"https://xinyao.ivicar.cn/xinyao/",
     systemInfo: null,//客户端设备信息
     productList:null,
     userInfo: null,

@@ -54,7 +54,7 @@ Page({
       title: '正在登录...',
       icon: 'loading'
     });
-    util.post("https://test.ivicar.cn/xinyao/miniapp/login", {"username":this.data.username,"password":this.data.password}).then((res) => {
+    util.post(app.globalData.testUrl + "miniapp/login", {"username":this.data.username,"password":this.data.password}).then((res) => {
       console.log(res);
       if (res == null ) {
         console.error("god bless you...");
@@ -120,7 +120,7 @@ Page({
       icon: 'loading'
     });
     // https://test.ivicar.cn/xinyao/miniapp/certs/activate
-    util.post("https://test.ivicar.cn/xinyao/miniapp/certs/activate",{"solutionId":this.data.productItem.solutionId,"brandId":this.data.productItem.brandId,"templateId":this.data.productItem.templateId,"clientId":scanCode}).then((res) => {
+    util.post(app.globalData.testUrl + "miniapp/certs/activate",{"solutionId":this.data.productItem.solutionId,"brandId":this.data.productItem.brandId,"templateId":this.data.productItem.templateId,"clientId":scanCode}).then((res) => {
       if (res == null ) {
         console.error("god bless you...");
         return;
@@ -187,7 +187,7 @@ Page({
       title: '加载中',
       icon: 'loading'
     });
-    util.get("https://test.ivicar.cn/xinyao/miniapp/certs/info",{"solutionId":this.data.productItem.solutionId,"brandId":this.data.productItem.brandId}).then((res) => {
+    util.get(app.globalData.testUrl + "miniapp/certs/info",{"solutionId":this.data.productItem.solutionId,"brandId":this.data.productItem.brandId}).then((res) => {
       if (res == null ) {
         console.error("god bless you...");
         return;
@@ -218,7 +218,7 @@ Page({
     icon: 'loading'
   });
 
-  util.get("https://test.ivicar.cn/xinyao/partners/"+app.globalData.userInfo.id+"/brand/relation").then((res) => {
+  util.get(app.globalData.testUrl + "partners/"+app.globalData.userInfo.id+"/brand/relation").then((res) => {
     console.log(res);
     if (res == null ) {
       console.error("god bless you...");
@@ -264,7 +264,7 @@ Page({
 
 reloadProductList () {
 
-  util.get("https://test.ivicar.cn/xinyao/partners/"+app.globalData.userInfo.id+"/brand/relation").then((res) => {
+  util.get(app.globalData.testUrl + "partners/"+app.globalData.userInfo.id+"/brand/relation").then((res) => {
     console.log(res);
     if (res == null ) {
       console.error("god bless you...");
@@ -298,7 +298,7 @@ reloadProductList () {
       icon: 'loading'
     });
     //此处为使用封装的post请求
-    util.get("https://test.ivicar.cn/xinyao/miniapp/certs/list", {"pageNumber":targetPage,"pageSize":10,"brandId":brandId,"solutionId":solutionId,}).then((res) => {
+    util.get(app.globalData.testUrl + "miniapp/certs/list", {"pageNumber":targetPage,"pageSize":10,"brandId":brandId,"solutionId":solutionId,}).then((res) => {
       console.log(res);
       console.log("我是你爸爸");
       if (res == null) {

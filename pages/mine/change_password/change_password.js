@@ -60,7 +60,7 @@ Page({
     }
 
     console.log("liupu"+getApp().globalData.userInfo.id);
-    util.post("https://test.ivicar.cn/xinyao/partners/"+app.globalData.userInfo.id+"/password/change", {"oldPassword":this.data.oldPassword,"newPassword":this.data.newPassword,"paertnerId":app.globalData.userInfo.id}).then((res) => {
+    util.post(app.globalData.testUrl + "partners/"+app.globalData.userInfo.id+"/password/change", {"oldPassword":this.data.oldPassword,"newPassword":this.data.newPassword,"paertnerId":app.globalData.userInfo.id}).then((res) => {
       console.log(res);
       if (res == null ) {
         console.error("god bless you...");
