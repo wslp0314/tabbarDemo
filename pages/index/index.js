@@ -22,7 +22,8 @@ Page({
     hidden: false,
     loading: false,
     // loadmorehidden:true,
-    plain: false
+    plain: false,
+    currentProduct:0,
   },
 
   //登录获取username和password
@@ -54,7 +55,7 @@ Page({
       title: '正在登录...',
       icon: 'loading'
     });
-    util.post(app.globalData.testUrl + "miniapp/login", {"username":this.data.username,"password":this.data.password}).then((res) => {
+    util.post(app.globalData.productUrl + "miniapp/login", {"username":this.data.username,"password":this.data.password}).then((res) => {
       console.log(res);
       if (res == null ) {
         console.error("god bless you...");
@@ -120,7 +121,7 @@ Page({
       icon: 'loading'
     });
     // https://test.ivicar.cn/xinyao/miniapp/certs/activate
-    util.post(app.globalData.testUrl + "miniapp/certs/activate",{"solutionId":this.data.productItem.solutionId,"brandId":this.data.productItem.brandId,"templateId":this.data.productItem.templateId,"clientId":scanCode}).then((res) => {
+    util.post(app.globalData.productUrl + "miniapp/certs/activate",{"solutionId":this.data.productItem.solutionId,"brandId":this.data.productItem.brandId,"templateId":this.data.productItem.templateId,"clientId":scanCode}).then((res) => {
       if (res == null ) {
         console.error("god bless you...");
         return;
@@ -169,9 +170,9 @@ Page({
       productName: this.data.productList[e.detail.value] //+ "▽"
     })
     this.data.productName = this.data.productList[e.detail.value]
-     
     console.log(this.data.productList[e.detail.value])
     var temp = this.data.productAllList[e.detail.value];
+    this.data.currentProduct = e.detail.value;
     this.data.productItem = temp;
     this.data.canActive =temp.canActivate;
     app.globalData.canActive = temp.canActivate;
@@ -187,7 +188,7 @@ Page({
       title: '加载中',
       icon: 'loading'
     });
-    util.get(app.globalData.testUrl + "miniapp/certs/info",{"solutionId":this.data.productItem.solutionId,"brandId":this.data.productItem.brandId}).then((res) => {
+    util.get(app.globalData.productUrl + "miniapp/certs/info",{"solutionId":this.data.productItem.solutionId,"brandId":this.data.productItem.brandId}).then((res) => {
       if (res == null ) {
         console.error("god bless you...");
         return;
@@ -218,7 +219,7 @@ Page({
     icon: 'loading'
   });
 
-  util.get(app.globalData.testUrl + "partners/"+app.globalData.userInfo.id+"/brand/relation").then((res) => {
+  util.get(app.globalData.productUrl + "partners/"+app.globalData.userInfo.id+"/brand/relation").then((res) => {
     console.log(res);
     if (res == null ) {
       console.error("god bless you...");
@@ -264,13 +265,13 @@ Page({
 
 reloadProductList () {
 
-  util.get(app.globalData.testUrl + "partners/"+app.globalData.userInfo.id+"/brand/relation").then((res) => {
+  util.get(app.globalData.productUrl + "partners/"+app.globalData.userInfo.id+"/brand/relation").then((res) => {
     console.log(res);
     if (res == null ) {
       console.error("god bless you...");
       return;
       }
-      var tempItem = res.data[0];
+      var tempItem = res.data[this.data.currentProduct];
       this.data.productItem = tempItem;
       app.globalData.productList = res.data;
       this.data.productName = tempItem.name;
@@ -298,7 +299,7 @@ reloadProductList () {
       icon: 'loading'
     });
     //此处为使用封装的post请求
-    util.get(app.globalData.testUrl + "miniapp/certs/list", {"pageNumber":targetPage,"pageSize":10,"brandId":brandId,"solutionId":solutionId,}).then((res) => {
+    util.get(app.globalData.productUrl + "miniapp/certs/list", {"pageNumber":targetPage,"pageSize":10,"brandId":brandId,"solutionId":solutionId,}).then((res) => {
       console.log(res);
       console.log("我是你爸爸");
       if (res == null) {

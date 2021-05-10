@@ -191,10 +191,12 @@ height:240px;
 }
 
 .title {
+  display: flex;
   color: #000000;
   margin-left: 15px;
   margin-right: 15px;
   font-size: 14px;
+  justify-content:flex-end
 }
 
 
