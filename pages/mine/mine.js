@@ -88,7 +88,7 @@ Page({
       this.ellipsis();
     }
     wx.makePhoneCall({
-      phoneNumber: '18612321893',
+      phoneNumber: '18611786263',
       success: function () {
         console.log("拨打电话成功！")
       },
@@ -150,6 +150,15 @@ Page({
    */
 
   onShow: function () {
+    console.log("刘璞:   我的页面出现了");
+    this.reloadProductList();
+    this.changeViewNum();
+    
+  },
+
+  changeViewNum () {
+    console.log("刘璞:   changeViewNum出现了");
+
     var activedCount = 0;
     var array = app.globalData.productList;
     for (let i = 0; i < array.length; i++) {
@@ -164,6 +173,73 @@ Page({
       productName:app.globalData.userInfo.corporation==null?"":app.globalData.userInfo.corporation,
     });
   },
+
+  //激活方法
+  requstActive:function (scanCode) {
+    console.log("刘璞:   requstActive出现了");
+
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading'
+    });
+    // https://test.ivicar.cn/xinyao/miniapp/certs/activate      app.globalData.productItem = temp;
+    console.log("刘璞:   requstActive出现了" + app.globalData.productItem);
+
+    util.post(app.globalData.productUrl + "miniapp/certs/activate",{"solutionId":app.globalData.productItem.solutionId,"brandId":app.globalData.productItem.brandId,"templateId":app.globalData.productItem.templateId,"clientId":scanCode}).then((res) => {
+      if (res == null ) {
+        console.error("god bless you...");
+        return;
+        }
+        wx.hideToast();
+        wx.showToast({
+          title: "激活成功",
+          icon: "none"
+        });
+        console.log("刘璞:   requstActive成功");
+        this.reloadProductList();
+    }).catch((errMsg) => {
+      if (Object.prototype.toString.call(errMsg) === '[object String]') {
+        wx.showToast({
+          title: errMsg,
+          icon: "none"
+        })
+      }
+    });
+
+
+  },
+
+
+reloadProductList () {
+  console.log("刘璞:   reloadProductList出现");
+  util.get(app.globalData.productUrl + "partners/"+app.globalData.userInfo.id+"/brand/relation").then((res) => {
+    console.log(res);
+    if (res == null ) {
+      console.error("god bless you...");
+      return;
+      }
+      app.globalData.productList = res.data;
+      console.log(app.globalData.productList );
+      console.log(app.globalData.productList.length );
+      if (app.globalData.scanCode.length > 0) {
+        var  scanCode = app.globalData.scanCode;
+        console.log(scanCode);
+        this.requstActive(scanCode);
+        //激活方法
+        app.globalData.scanCode ="";
+      }
+      this.changeViewNum();
+      console.log("刘璞:   reloadProductList成功");
+
+  }).catch((errMsg) => {
+    if (Object.prototype.toString.call(errMsg) === '[object String]') {
+      wx.showToast({
+        title: errMsg,
+        icon: "none"
+      })
+    }
+  });
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -207,3 +283,5 @@ Page({
   
   }
 })
+
+var util = require('../../utils/util.js');

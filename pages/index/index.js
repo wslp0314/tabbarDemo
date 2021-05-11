@@ -19,6 +19,7 @@ Page({
     scanCode:'扫码',
     mCurrentPage:1,
     items: [],
+    itemList: [],
     hidden: false,
     loading: false,
     // loadmorehidden:true,
@@ -93,13 +94,26 @@ Page({
         username:username,
         password:password
       });
-    }
+    };
   },
   onShow: function () {
     console.log(app.globalData.userInfo);
     this.setData({
       userId:app.globalData.userInfo?"1":""
     });
+
+    if (app.globalData.userInfo == null) {
+      console.log("liupu ------------" + "clearlist");
+      this.setData({
+        items: [],
+        hidden: true,
+        productName:"",
+        totalNum:0,
+        useNum:0,
+        usedNum:0
+    });
+    }
+
     if (app.globalData.addProduct) {
       this.getUserProductInfoOrPlanInfo();
       app.globalData.addProduct = false;
@@ -111,6 +125,20 @@ Page({
       //激活方法
       app.globalData.scanCode ="";
     }
+
+    if (app.globalData.productList != null) {
+      var activedCount = 0;
+      var array = app.globalData.productList;
+      for (let i = 0; i < array.length; i++) {
+        activedCount +=  array[i].activatedCount
+      }
+      if (this.data.itemList.length != activedCount) {
+        this.getNumDetail();
+        this.getActivedList(mCurrentPage,this.data.productItem.brandId ,this.data.productItem.solutionId);
+        this.reloadProductList();
+      }
+    }
+    
   },
 
   //激活方法
@@ -133,7 +161,7 @@ Page({
         });
         this.getNumDetail();
         this.getActivedList(mCurrentPage,this.data.productItem.brandId ,this.data.productItem.solutionId);
-
+        this.reloadProductList();
     }).catch((errMsg) => {
       if (Object.prototype.toString.call(errMsg) === '[object String]') {
         wx.showToast({
@@ -174,6 +202,8 @@ Page({
     var temp = this.data.productAllList[e.detail.value];
     this.data.currentProduct = e.detail.value;
     this.data.productItem = temp;
+    app.globalData.productItem = temp;
+
     this.data.canActive =temp.canActivate;
     app.globalData.canActive = temp.canActivate;
     this.getActivedList(mCurrentPage,temp.brandId ,temp.solutionId);
@@ -227,6 +257,7 @@ Page({
       }
       var tempItem = res.data[0];
       this.data.productItem = tempItem;
+      app.globalData.productItem = tempItem;
       this.data.canActive = tempItem.canActivate;
       app.globalData.canActivate = tempItem.canActivate;
       wx.hideToast();
@@ -273,6 +304,7 @@ reloadProductList () {
       }
       var tempItem = res.data[this.data.currentProduct];
       this.data.productItem = tempItem;
+      app.globalData.productItem = tempItem;
       app.globalData.productList = res.data;
       this.data.productName = tempItem.name;
       this.data.productList = [];
@@ -316,15 +348,15 @@ reloadProductList () {
 
       //将获得的各种数据写入itemList，用于setData
       // if (targetPage > 0) {
-        var itemList = [];
+         this.data.itemList = [];
       // }
 
       for (var i = 0; i < mDesc.length; i++) {
-        itemList.push({ desc: mDesc[i],  time: mTimes[i], });
+        this.data.itemList.push({ desc: mDesc[i],  time: mTimes[i], });
       }
-
+ 
       this.setData({
-        items: itemList,
+        items: this.data.itemList,
         hidden: true,
         // loadmorehidden:false,
       });
